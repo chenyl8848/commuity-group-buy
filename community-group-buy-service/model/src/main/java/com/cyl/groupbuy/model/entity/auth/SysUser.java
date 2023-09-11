@@ -1,4 +1,4 @@
-package com.cyl.groupbuy.model.entity.acl;
+package com.cyl.groupbuy.model.entity.auth;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -17,8 +17,8 @@ import lombok.Data;
  */
 @Data
 @ApiModel(description = "用户")
-@TableName("admin")
-public class Admin extends BaseEntity {
+@TableName("sys_user")
+public class SysUser extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 

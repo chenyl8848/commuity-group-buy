@@ -1,6 +1,4 @@
-//
-//
-package com.cyl.groupbuy.model.entity.acl;
+package com.cyl.groupbuy.model.entity.auth;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -11,26 +9,26 @@ import lombok.Data;
 
 /**
  * <p>
- * 角色权限
+ * 用户角色
  * </p>
  *
  * @author qy
  * @since 2019-11-08
  */
 @Data
-@ApiModel(description = "角色权限")
-@TableName("role_permission")
-public class RolePermission extends BaseEntity {
+@ApiModel(description = "用户角色")
+@TableName("sys_user_role")
+public class SysUserRole extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ApiModelProperty(value = "roleid")
+	@ApiModelProperty(value = "角色id")
 	@TableField("role_id")
 	private Long roleId;
 
-	@ApiModelProperty(value = "permissionId")
-	@TableField("permission_id")
-	private Long permissionId;
+	@ApiModelProperty(value = "用户id")
+	@TableField("admin_id")
+	private Long adminId;
 
 }
 

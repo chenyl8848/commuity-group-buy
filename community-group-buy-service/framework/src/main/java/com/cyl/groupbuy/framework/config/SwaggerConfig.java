@@ -3,6 +3,7 @@ package com.cyl.groupbuy.framework.config;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -54,7 +55,8 @@ public class SwaggerConfig {
                 .groupName("webApi")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.cyl.scaffold.controller"))
+//                .apis(RequestHandlerSelectors.basePackage("com.cyl.gropubuy.*.*.controller"))
+                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
                 .build()
                 .globalRequestParameters(paramsList);
