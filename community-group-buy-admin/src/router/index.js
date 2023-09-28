@@ -160,6 +160,46 @@ export const constantRoutes = [
     ]
   },
 
+  {
+    path: '/auth',
+    component: Layout,
+    redirect: '/auth/sysuser',
+    name: 'auth',
+    meta: {
+      title: '权限管理',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: '/sysuser',
+        component: () => import('@/views/auth/sysuser/index'),
+        name: 'sysuser',
+        meta: {
+          title: '用户管理',
+          icon: 'nested'
+        }
+      },
+      {
+        path: '/sysrole',
+        component: () => import('@/views/auth/sysrole/index'),
+        name: 'sysrole',
+        meta: {
+          title: '角色管理',
+          icon: 'nested'
+        }
+      },
+      {
+        path: '/sysmenu',
+        component: () => import('@/views/auth/sysmenu/index'),
+        name: 'sysmenu',
+        meta: {
+          title: '菜单管理',
+          icon: 'nested'
+        }
+      },
+    ]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

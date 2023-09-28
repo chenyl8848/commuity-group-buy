@@ -5,17 +5,20 @@ import com.cyl.gropubuy.admin.auth.service.ISysUserService;
 import com.cyl.groupbuy.framework.result.Result;
 import com.cyl.groupbuy.model.entity.auth.SysUser;
 import com.cyl.groupbuy.model.vo.auth.SysUserQueryVo;
+import com.google.common.collect.Maps;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.HashMap;
 
 /**
  * @author：Java陈序员
  * @date：2023/9/11 15:59
  * @description：用户管理接口
  */
-@RestController(value = "sysuser")
+@RestController
+@RequestMapping(value = "sysuser")
 @Api(tags = "用户管理接口")
 public class SysUserController {
 
@@ -51,7 +54,7 @@ public class SysUserController {
         return Result.success(sysUser);
     }
 
-    @GetMapping("/getList/{pageNo}/{pageSize}")
+    @PostMapping("/getList/{pageNo}/{pageSize}")
     @ApiOperation(value = "获取用户列表信息", notes = "获取用户列表信息")
     public Result getList(@PathVariable("pageNo") Integer pageNo,
                           @PathVariable("pageSize") Integer pageSize,
@@ -72,7 +75,33 @@ public class SysUserController {
                              @RequestBody Long[] roleIds) {
 
         return Result.success(null);
-
     }
 
+    @PostMapping("/login")
+    @ApiOperation(value = "登录", notes = "登录")
+    public Result login() {
+
+        HashMap<String, Object> resultMap = Maps.newHashMap();
+
+        resultMap.put("token", "123");
+        return Result.success(resultMap);
+    }
+
+    @PostMapping("/logout")
+    @ApiOperation(value = "推出登录", notes = "推出登录")
+    public Result logout() {
+
+        return Result.success(null);
+    }
+
+    @GetMapping("/getInfo")
+    @ApiOperation(value = "获取用户信息", notes = "获取用户信息")
+    public Result getInfo() {
+
+        HashMap<String, Object> resultMap = Maps.newHashMap();
+
+        resultMap.put("name", "Super Admin");
+        resultMap.put("avatar", "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
+        return Result.success(resultMap);
+    }
 }

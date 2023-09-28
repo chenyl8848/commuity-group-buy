@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerIntercep
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.apache.ibatis.reflection.MetaObject;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
  * @description：Mybatis-Plus 配置类
  */
 @Configuration
+@MapperScan(basePackages = "com.cyl.gropubuy.**.mapper")
 public class MybatisPlusConfig {
 
     /**
@@ -34,7 +36,6 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         // 禁止全表 删除/更新 插件
         interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
-
 
         return interceptor;
     }

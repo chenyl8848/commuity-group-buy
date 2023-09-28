@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -20,7 +21,8 @@ import javax.annotation.Resource;
  * @date：2023/9/11 17:16
  * @description：菜单管理接口
  */
-@RestController(value = "sysmenu")
+@RestController
+@RequestMapping(value = "sysmenu")
 @Api(tags = "菜单管理接口")
 public class SysMenuController {
 

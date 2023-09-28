@@ -1,5 +1,6 @@
 package com.cyl.gropubuy.admin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.cyl.groupbuy.framework", "com.cyl.gropubuy.admin"})
+//@MapperScan(basePackages = "com.cyl.gropubuy.admin.**.mapper")
 public class AdminApplication {
 
     public static void main(String[] args) {

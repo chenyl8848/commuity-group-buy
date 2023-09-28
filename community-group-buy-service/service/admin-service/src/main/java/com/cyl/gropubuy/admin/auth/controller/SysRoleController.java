@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -22,7 +23,8 @@ import javax.annotation.Resource;
  * @date：2023/9/11 15:59
  * @description：角色管理接口
  */
-@RestController(value = "sysrole")
+@RestController
+@RequestMapping(value = "sysrole")
 @Api(tags = "角色管理接口")
 public class SysRoleController {
 
@@ -58,7 +60,7 @@ public class SysRoleController {
         return Result.success(SysRole);
     }
 
-    @GetMapping("/getList/{pageNo}/{pageSize}")
+    @PostMapping("/getList/{pageNo}/{pageSize}")
     @ApiOperation(value = "获取角色列表信息", notes = "获取角色列表信息")
     public Result getList(@PathVariable("pageNo") Integer pageNo,
                           @PathVariable("pageSize") Integer pageSize,
